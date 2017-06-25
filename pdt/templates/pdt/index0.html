@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{mID.name}}'s Home | PDT</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/static/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect.
+    -->
+    <link rel="stylesheet" href="/static/dist/css/skins/skin-blue.min.css">
+
+  </head>
+
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+      <!-- Main Header -->
+      <header class="main-header">
+
+        <!-- Logo -->
+        <a href="index2.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>PDT</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg">Project<b>DT</b></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              
+
+              <!-- User Account Menu -->
+              <li class="dropdown user user-menu">
+                <!-- Menu Toggle Button -->
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <!-- The user image in the navbar-->
+                  <img src="/static/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                  <span class="hidden-xs">{{mID.name}} - Manager</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <!-- The user image in the menu -->
+                  <li class="user-header">
+                    <img src="/static/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    <p>
+                      {{mID.name}} - Manager
+                      <small>{{mID.email}}</small>
+                    </p>
+                  </li>
+                  <!-- Menu Footer-->
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                    </div>
+                    <div class="pull-right">
+                      <a href="http://localhost:8000/pdt/login" class="btn btn-primary btn-flat" onClick="delcfm()">Sign out</a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+            <div class="pull-left image">
+              <img src="/static/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+              <p>{{mID.name}} - Manager</p>
+              <!-- Status -->
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+
+          <!-- search form (Optional) -->
+          <form action="#" method="get" class="sidebar-form">
+            <div class="input-group">
+              <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+          </form>
+          <!-- /.search form -->
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <li class="header">Nav</li>
+            <li class="active"><a href="http://localhost:8000/pdt/index/{{mID.id}}"><i class="fa fa-link"></i> <span>Project List</span></a></li>
+          </ul><!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header" style="margin-bottom: 10px; opacity:0.7">
+          <h1 style="font-family:Arial, Helvetica, sans-serif; font-size: 25px">
+            Project List
+            <small>click on project name to view project page</small>
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-sort"></i> Project List</a></li>
+          </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+            <div class="col-lg-3 col-xs-6" style="height:150.722px; width:265.091px; padding-left:35px; padding-right:0px">
+              <!-- small box -->
+              <div class="small-box bg-teal-gradient">
+                <div class="inner">
+                  <a href="#" data-toggle="modal" data-target="#newProjectModal"><h3>Create<sup style="font-size: 20px">+</sup></h3></a>
+                  <p>Click to Start New Project</p>
+                </div>
+                 <!--form modal-->
+                <div class='modal fade' id='newProjectModal' tabindex='-1' role='dialog' aria-labelledby='phaseModalLabel'>
+                  <div class='modal-dialog' role='document'>
+                    <div class='modal-content' style='background: #e6e6e6'>
+                      <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                        <h4 class='modal-title' style='color: #000'>Create Project</h4>
+                      </div>
+                      <!-- modal body -->
+                      <div class='modal-body'>
+                        <form action='http://localhost:8000/pdt/newProject/' method='post' id='newProjectForm' style='color: #000'>{% csrf_token %}
+                          <input class='form-control' type='hidden' id='mID' name='mID' value='{{mID.id}}'/>
+                          <label>Project Name</label>
+                          <input class='form-control' id='name' name='name' placeholder='Enter name...'>
+
+                          <p class="form_element">Developer Assignment</p>
+                          <div class="row">
+                            <div class="col-xs-5">
+                              <select multiple="multiple" class="form-control" id="Assigned" name="developerList" style="height:100px;">
+                              </select>
+                            </div>
+                            <div class="col-xs-2" style="text-align:center">
+                              <button type="button" class="btn btn-default btn-lg" id="AssignButton">Add Developer</button>
+                              <button type="button" class="btn btn-default btn-lg" id="RemoveButton" style="margin-top:5px">Remove Developer</button>
+                            </div>
+                            <div class="col-xs-5">
+                              <select multiple class="form-control" id="Unassigned" style="height:100px;">
+                                {% for developer in developerLst %}
+                                  <option value="{{developer.id}}">{{developer.name}}</option>
+                                {% endfor %}
+                              </select>
+                            </div>
+                          </div>
+                          <!--select multiple-->
+                          <label>Estimated Size (SLOC)</label>
+                            <input class='form-control' id='eSLOC' name='eSLOC' placeholder='Enter ...'></input>
+                          <label>Estimated Effort (person-month)</label>
+                            <input class='form-control' id='eEffort' name='eEffort' placeholder='Enter ...'></input>
+                          <label>Descrpition (optional)</label>
+                            <textarea class='form-control' rows='3' id='desc' name='desc' placeholder='Enter ...'></textarea>
+                          <!--form ends-->
+                        </form>
+                      </div>
+
+                      <div class='modal-footer'>
+                        <button type='button' class='btn btn-default' data-dismiss='modal'><i class='fa fa-fw fa-close'></i> Cancel</button>
+                        <button type='submit' id='createSubmit' style='margin: 10px' class='btn btn-primary')><i class='fa fa-mouse-pointer'></i> Create Project</button>
+                      </div><!-- modal footer end -->
+                      
+                    </div>
+                  </div>
+                </div>
+                <!-- form modal ends -->
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">Create <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div><!-- ./col -->
+            {% for project in projectLst %}
+              <div class="col-lg-3 col-xs-6" style="height:150.722px; width:265.091px; padding-left:35px; padding-right:0px">
+                <!-- small box -->
+                {% if project.status == 'ongoing' %}
+                <div class="small-box bg-aqua">
+                {% else %}
+                <div class="small-box bg-blue">
+                {% endif %}
+                  <div class="inner">
+                    <a href="http://localhost:8000/pdt/projPage/{{project.id}}"><h3 style="color:#fff">{{project.name}}</h3></a>
+                    {% if project.desc %}
+                      <p>{{project.desc}}</p>
+                    {% else %}
+                      <p>(No Description)</p>
+                    {% endif %}
+                  </div>
+                  <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                  </div>
+                  <a href="http://localhost:8000/pdt/projPage/{{project.id}}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+              </div><!-- ./col -->
+            {% endfor %}
+
+        </section><!-- /.content -->
+      </div><!-- /.content-wrapper -->
+
+      <!-- Main Footer -->
+      <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+          Good grade please!! >_<
+        </div>
+
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2015 <a href="http://localhost:8000/pdt/aboutus.html">SE Group 6</a>.</strong> All rights reserved.
+      </footer>
+
+    </div><!-- ./wrapper -->
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <!-- jQuery 2.1.4 -->
+    <script src="/static/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/static/dist/js/app.min.js"></script>
+    <script src="/static/js/manIndex.js"></script>
+
+  </body>
+</html>
